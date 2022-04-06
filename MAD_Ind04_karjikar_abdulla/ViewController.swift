@@ -43,6 +43,10 @@ class ViewController: UIViewController {
         getStateInformation{
             data in
             self.results = data
+            // After loading all the values in a array, we are sorting based on stateName i.e. 0th element in tupple is stateName.
+            self.results = self.results.sorted{
+                $0.0 < $1.0
+            }
             DispatchQueue.main.async {
                 self.spinner.stopAnimating()
                 self.tableViewController_.reloadData()
